@@ -1,0 +1,138 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    @RenderSection("meta",required:false)
+   
+   
+   
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              asp-fallback-href="/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+   
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Animations -->
+    <link href="/css/animations.css" rel="stylesheet">
+    <!-- Lightbox -->
+    <link href="/css/lightbox.min.css" rel="stylesheet">
+    <!-- Video Lightbox -->
+    <link href="/css/modal-video.min.css" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/site.css" />
+    <link rel="stylesheet" href="/css/my.css" />
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader-wrapper">
+        <h1 class="loader-logo"><span class="colored">S</span>MART GAMES</h1>
+        <div id="progress"></div>
+        <h3 class="loader-text">YÜKLƏNİR...</h3>
+    </div>
+
+    <!-- //// HEADER //// -->
+    <header id="main-header">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+            <div class="container">
+                <!-- Site Logo -->
+                <a id="logo" class="navbar-brand" href="/">
+
+                    <h5 class="loader-logo"><span class="colored">S</span>MART GAMES</h5>
+                </a>
+                <!-- Dropdown Button -->
+                <button id="hamburger" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/#about">Haqqımızda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/#games">Yarışlar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/#team">Qalereya</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/#contact">Əlaqə</a>
+                        </li>
+                        <partial name="_LoginPartial" />
+                        <li class="nav-item">
+                            <a class="nav-link" href="/privacy/index">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header><!-- Header End -->
+
+
+    @RenderBody()
+
+
+    <footer id="main-footer">
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p id="copyright">&copy; Powered by <a href="http://compinter.net">CompNet LLC</a> <span id="year">2019</span></p><!-- Copyright Text -->
+                        <ul class="social-links">
+                            <!-- Social Media Icons -->
+                            <li><a href="#"><i class="fa fa-facebook fa-lg icon-social"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter  fa-lg icon-social"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus fa-lg icon-social"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin fa-lg icon-social"></i></a>
+                            <li><a href="#"><i class="fa fa-pinterest fa-lg icon-social"></i></a>
+                            <li><a href="#"><i class="fa fa-instagram fa-lg icon-social"></i></a>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- Container End -->
+        </div>
+    </footer><!-- Footer End -->
+    <!-- //// SCRIPTS //// -->
+
+
+
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB64kJJiSynOc9ZqkNMOyl94cvsw5Z2uno"></script>
+
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/blazy.min.js"></script>
+    <script src="/js/slide-bar.js"></script>
+    <script src="/js/isotope.pkgd.min.js"></script>
+    <script src="/js/lightbox.min.js"></script>
+    <script src="/js/jquery-modal-video.min.js"></script>
+    <script src="/js/validator.min.js"></script>
+    <script src="/js/strider.js"></script>
+    <script src="~/js/formvalidator.js"></script>
+    <script src="~/js/toastr.min.js"></script>
+    <script src="/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/my.js"></script>
+
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

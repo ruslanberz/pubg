@@ -1,0 +1,48 @@
+﻿@model IEnumerable<PUBG.Models.Slider>
+
+@{
+    ViewData["Title"] = "Slider";
+    Layout = "~/Areas/Control/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<p>
+    <a asp-action="Create">Yeni slider yarat</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Başlıq
+            </th>
+            <th>
+               Mətn
+            </th>
+            <th>
+               Şəkil
+            </th>
+            <th>Redaktə</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+            <td>
+                <img src="~/images/@item.Photo" width="200"/>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">İnfo</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

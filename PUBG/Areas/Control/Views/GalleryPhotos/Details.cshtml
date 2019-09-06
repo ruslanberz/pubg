@@ -1,0 +1,25 @@
+﻿@model PUBG.Models.GalleryPhotos
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Control/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Qalereya</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+       Şəkil
+        </dt>
+        <dd class="col-sm-10">
+            <img src="~/images/@Model.Image" width="150" />
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Redaktə</a> |
+    <a asp-action="Index">Geri qayıd</a>
+</div>

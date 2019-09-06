@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PUBG.Models.Season>
+
+@{
+    ViewData["Title"] = "Sezon";
+    Layout = "~/Areas/Control/Views/Shared/_Layout.cshtml";
+    int i = 0;
+}
+
+
+<p>
+    <a asp-action="Create">Yeni Sezon yarat</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                №
+            </th>
+            <th>
+                Başlama vaxtı
+            </th>
+            <th>
+                Bitmə vaxtı
+            </th>
+            <th>
+                Sezon adı
+            </th>
+            <th>
+                Aktiv
+            </th>
+            <th>Redaktə</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OrderByDescending(x=>x.IsActive==true)) {
+    i++;
+        <tr>
+            <td>@i</td>
+            <td>
+                @item.StartTime.ToString("dd-MM-yyyy")
+            </td>
+            <td>
+                @item.EndTime.ToString("dd-MM-yyyy")
+            </td>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Info</a> 
+                @*<a asp-action="Delete" asp-route-id="@item.Id">Sil</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

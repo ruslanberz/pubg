@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PUBG.Models.Advertisement>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Control/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<p>
+    <a asp-action="Create">Yeni reklam yarad</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Yaranma tarixi
+            </th>
+            <th>
+                Etibarlıdır
+            </th>
+            <th>
+              Başlıq
+            </th>
+            <th>
+                Unikal İD
+            </th>
+            <th>
+              Mətn
+            </th>
+            <th>
+              Şəkil
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValidUntil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniqueID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BodyText)
+            </td>
+            <td>
+               <img src="~/images/@item.Image" width="200"/>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Redaktə et</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Ətraflı</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

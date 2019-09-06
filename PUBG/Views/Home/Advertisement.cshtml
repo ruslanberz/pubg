@@ -1,0 +1,45 @@
+﻿@model PUBG.Models.Advertisement
+@{
+    ViewData["Title"]=@Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+
+}
+
+
+@section meta{
+<meta property="og:url" content="https://smartgames.az/home/advertisement/@Model.Id" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="@Model.Title" />
+<meta property="og:description" content="@Model.UniqueID  @Model.BodyText" />
+<meta property="og:image" content="https://smartgames.az/images/@Model.Image" />
+}
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=2275665719412306&autoLogAppEvents=1"></script>
+<div class="container" style="margin-top:100px;">
+
+    <div class="row game-card pc">
+        <div class="col-lg-12 col-xl-5 game-card-left">
+            <a href="/images/@Model.Image" data-lightbox="screenshots_aurora">
+                <div class="overlay">
+                    <i class="fa fa-picture-o fa-3x"></i>t
+                </div>
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="/images/@Model.Image">
+                    <source media="(min-width: 768px)" srcset="/images/@Model.Image">
+                    <img src="/images/placeholder.jpg" data-src="/images/@Model.Image" class="img-fluid b-lazy" alt="aurora image">
+                </picture>
+            </a>
+            <a href="/images/@Model.Image" data-lightbox="screenshots_aurora"></a>
+            <a href="/images/@Model.Image" data-lightbox="screenshots_aurora"></a>
+        </div>
+        <div class="col-lg-12 col-xl-7 game-card-right">
+            <h2 class="short-hr-left">@Model.Title</h2>
+
+            <p class="game-description">@Model.BodyText</p>
+
+            <span>@Model.UniqueID</span>
+            <div class="fb-share-button" data-href="https://smartgames.az/home/advertisement/@Model.Id" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://smartgames.az/home/advertisement/@Model.Id;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+        </div>
+
+    </div>
+</div>

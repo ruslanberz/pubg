@@ -1,0 +1,58 @@
+﻿@model PUBG.Models.Advertisement
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Control/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Sil</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Advertisement</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Yaranma tarixi
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+        <dt class = "col-sm-2">
+           Etibarlıdır
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ValidUntil)
+        </dd>
+        <dt class = "col-sm-2">
+           Başlıq
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+           Unikal İD
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UniqueID)
+        </dd>
+        <dt class = "col-sm-2">
+            Mətn
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BodyText)
+        </dd>
+        <dt class = "col-sm-2">
+            Şəkil
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Index">Siyahıya qayıd</a>
+    </form>
+</div>

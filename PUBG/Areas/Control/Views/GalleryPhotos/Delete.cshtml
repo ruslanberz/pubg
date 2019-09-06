@@ -1,0 +1,28 @@
+﻿@model PUBG.Models.GalleryPhotos
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Control/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Silinmə</h1>
+
+<h3>Bunu silməkdə əminsiniz?</h3>
+<div>
+    <h4>Qalereya</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Şəkil
+        </dt>
+        <dd class="col-sm-10">
+            <img src="~/images/@Model.Image" width="150" />
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Index">Geri qayıd</a>
+    </form>
+</div>

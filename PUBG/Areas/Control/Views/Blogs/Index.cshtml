@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PUBG.Models.Blog>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Control/Views/Shared/_Layout.cshtml";
+    int i =0;
+}
+
+
+
+<p>
+    <a asp-action="Create">Yeni Blog yarat</a>
+</p>
+<table class="table table-bordered table-active" id="myTable"> 
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>
+                Başlıq
+            </th>
+            <th>
+                Mətn
+            </th>
+            <th>
+                Şəkil
+            </th>
+            <th>Redaktə</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    i++;
+        <tr>
+            <td>@i</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+            <td>
+               <img src="~/images/@item.Photo" width="200"/>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Info</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

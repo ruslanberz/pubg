@@ -1,0 +1,55 @@
+﻿@model PUBG.Models.Advertisement
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Control/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ətraflı</h1>
+
+<div>
+    <h4>Advertisement</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Yaranma tarixi
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+        <dt class = "col-sm-2">
+            Etibarlıdır
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ValidUntil)
+        </dd>
+        <dt class = "col-sm-2">
+            Başlıq
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+           Unikal İD
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UniqueID)
+        </dd>
+        <dt class = "col-sm-2">
+           Mətn
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BodyText)
+        </dd>
+        <dt class = "col-sm-2">
+           Şəkil
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

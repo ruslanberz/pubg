@@ -1,0 +1,60 @@
+﻿@model PUBG.Areas.Control.Models.EditAdsModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Control/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Redaktə</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="PhotoPath" />
+            <div class="form-group">
+                <label asp-for="CreationDate" class="control-label">Yaranma tarixi</label>
+                <input asp-for="CreationDate" class="form-control" readonly />
+                <span asp-validation-for="CreationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValidUntil" class="control-label">Son tarix</label>
+                <input asp-for="ValidUntil" class="form-control" />
+                <span asp-validation-for="ValidUntil" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label">Başlıq</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UniqueID" class="control-label">Unikal açar</label>
+                <input asp-for="UniqueID" class="form-control" readonly />
+                <span asp-validation-for="UniqueID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BodyText" class="control-label">Mətn</label>
+                <input asp-for="BodyText" class="form-control" />
+                <span asp-validation-for="BodyText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label">Şəkil</label>
+                <input asp-for="Image" class="form-control" type="file" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Yadda saxla" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Geri</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,84 @@
+﻿@page
+@model ExternalLoginModel
+@{
+    ViewData["Title"] = "Qeydiyyat";
+}
+
+
+<br />
+<br />
+<br />
+<br />
+
+<div class="container" style="height:75vh">
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-info text-center " style="color:white!important">
+                Siz <strong>@Model.LoginProvider</strong> ilə uğurla daxil oldunuz.
+                Zəhmət olmasa qeydiyyatınızı tamamlamaq üçün müvafiq xanaları doldurun.
+            </p>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-3 mb-5">
+            <form asp-page-handler="Confirmation" asp-route-returnUrl="@Model.ReturnUrl" method="post"  >
+                <div class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.PubgUsername">PUBG istifadəçi adı</label>
+                    <input asp-for="Input.PubgUsername" class="form-control" id="valid" placeholder="Pubg nikinizi daxil edin" />
+                    <span asp-validation-for="Input.PubgUsername" id="error" class="text-superdanger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Email">E-poçt</label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-superdanger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Name">Adınız</label>
+                    <input asp-for="Input.Name" class="form-control" readonly />
+                    <span asp-validation-for="Input.Name" class="text-superdanger"></span>
+                </div>
+
+                <button type="submit" id="register" class="btn xxyy offset-4">Qeydiyyat</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            $("#valid").change(function (ev) {
+                ev.preventDefault();
+                var val = $("#valid").val();
+
+                $.ajax({
+
+                    url: "/home/validate",
+                    dataType: "JSON",
+                    type: "POST",
+                    data: {
+                        PubgUsername: val
+                    },
+                    success: function (response) {
+
+                        if (response.valid) {
+
+                            $("#register").removeAttr('disabled');
+
+                        }
+                        else {
+                            $("#register").attr('disabled', 'disabled');
+                            $("#error").text(response.message);
+
+                        }
+
+                    }
+                });
+
+            });
+        });
+    </script>
+}

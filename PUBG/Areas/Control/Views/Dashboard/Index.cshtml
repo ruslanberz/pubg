@@ -1,0 +1,34 @@
+﻿@model List<PUBG.Areas.Control.Models.DashboardIndex>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Control/Views/Shared/_Layout.cshtml";
+    int i = 0;
+}
+
+<table class="table table-bordered" id="myTable">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Pubg Oyun adı</th>
+            <th>Sayı</th>
+            <th>Xalı</th>
+            <th>Redaktə</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td>@i</td>
+                <td>@item.PubgUsername</td>
+                <td>@item.Count</td>
+                <td>@item.Points</td>
+                <td><a asp-action="Result" asp-controller="dashboard" asp-route-id="@item.Id">Nəticəni sil</a>
+                
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
