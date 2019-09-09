@@ -6,16 +6,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
-    @RenderSection("meta",required:false)
-   
-   
-   
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              asp-fallback-href="/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
-              crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
-   
+    @RenderSection("meta", required: false)
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          asp-fallback-href="/lib/bootstrap/dist/css/bootstrap.min.css"
+          asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+          crossorigin="anonymous"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +28,8 @@
     <!-- Video Lightbox -->
     <link href="/css/modal-video.min.css" rel="stylesheet">
     <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="~/css/intlTelInput.css">
+
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/toastr.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/site.css" />
@@ -72,10 +74,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/#contact">Əlaqə</a>
                         </li>
-                        <partial name="_LoginPartial" />
+
                         <li class="nav-item">
                             <a class="nav-link" href="/privacy/index">Privacy</a>
                         </li>
+                        <partial name="_LoginPartial" />
                     </ul>
                 </div>
             </div>
@@ -126,6 +129,7 @@
     <script src="/js/jquery-modal-video.min.js"></script>
     <script src="/js/validator.min.js"></script>
     <script src="/js/strider.js"></script>
+    <script src="~/js/intlTelInput-jquery.min.js"></script>
     <script src="~/js/formvalidator.js"></script>
     <script src="~/js/toastr.min.js"></script>
     <script src="/js/site.js" asp-append-version="true"></script>
@@ -134,5 +138,6 @@
 
 
     @RenderSection("Scripts", required: false)
+    @RenderSection("RegisterDate", required: false)
 </body>
 </html>

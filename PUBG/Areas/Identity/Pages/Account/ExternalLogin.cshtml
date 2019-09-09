@@ -4,11 +4,46 @@
     ViewData["Title"] = "Qeydiyyat";
 }
 
+@section RegisterDate{ 
+
+@*
+<script>
+
+    $(document).ready(function () {
+    var date = new Date();
+
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+
+   var today = year + "-" + month + "-" + day;  
+    $("#Input_BirthDate").attr("value", today);
+  
+
+
+});
+</script>*@
+
+<script>
+    $("#Input_Mobile").intlTelInput({
+        initialCountry: "AZ",
+        autoPlaceholder: "0774202055",
+        separateDialCode:true,
+    
+
+
+});
+
+</script>
+}
+
 
 <br />
 <br />
-<br />
-<br />
+
 
 <div class="container" style="height:75vh">
     <div class="row">
@@ -22,7 +57,7 @@
     </div>
     <div class="row">
         <div class="col-md-4 offset-md-4 mt-3 mb-5">
-            <form asp-page-handler="Confirmation" asp-route-returnUrl="@Model.ReturnUrl" method="post"  >
+            <form asp-page-handler="Confirmation" asp-route-returnUrl="@Model.ReturnUrl" method="post">
                 <div class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="Input.PubgUsername">PUBG istifadəçi adı</label>
@@ -36,15 +71,48 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Input.Name">Adınız</label>
-                    <input asp-for="Input.Name" class="form-control" readonly />
+                    <input asp-for="Input.Name" class="form-control" />
                     <span asp-validation-for="Input.Name" class="text-superdanger"></span>
                 </div>
+                <div class="form-group">
+                    <label asp-for="Input.BirthDate">Doğum tarixiniz</label>
+                    <input asp-for="Input.BirthDate" class="form-control" value=""/>
+                    <span asp-validation-for="Input.BirthDate" class="text-superdanger" ></span>
+                </div>
+                @*<div class="form-group">
+                        <label asp-for="Input.Gender">Cinsiniz</label>
+                        <input asp-for="Input.Gender" class="form-control" />
+                        <span asp-validation-for="Input.Gender" class="text-superdanger"></span>
+                    </div>*@
+            <div class="form-group">
+                <label asp-for="Input.Gender">Cinsiniz</label>
+                <br />
+                <span class="gender">Kişi</span>
+                @Html.RadioButtonFor(model => model.Input.Gender, false, new { id = "Gender-false",@class="gender-m" })
+
+            <span class="gender">Qadın</span>
+                @Html.RadioButtonFor(model => model.Input.Gender, true, new { id = "Gender-true", @class="gender-f"  })
+
+            </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Input.Mobile">Mobil telefon</label>
+                    <br />
+                    <input asp-for="Input.Mobile" class="form-control" />
+                    <span asp-validation-for="Input.Mobile" class="text-superdanger"></span>
+                </div>
+              
 
                 <button type="submit" id="register" class="btn xxyy offset-4">Qeydiyyat</button>
             </form>
         </div>
     </div>
 </div>
+
+
+<br />
+<br />
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Claims;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using PUBG.Data;
@@ -58,6 +60,17 @@ namespace PUBG.Areas.Identity.Pages.Account
             [Required(ErrorMessage = "PUBG nickinizi boş buraxmayın")]
 
             public string PubgUsername { get; set; }
+            [Required(ErrorMessage = "Doğum tarixini boş buraxmayın!")]
+            [DataType(DataType.Date)]
+           
+            public DateTime BirthDate { get; set; }
+
+            [Required(ErrorMessage = "Cinsinizi qeyd edin! ")]
+            [DefaultValue(false)]
+            public bool Gender { get; set; }
+            [Required(ErrorMessage = "Mobil telefonunuzu qeyd edin! ")]
+            public  string Mobile { get; set; }
+
         }
 
         public IActionResult OnGetAsync()
@@ -145,7 +158,7 @@ namespace PUBG.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, Fullname = Input.Name, CreationDate = DateTime.UtcNow.AddHours(4), PreviousLogin=DateTime.UtcNow.AddHours(4),LastLogin=DateTime.UtcNow.AddHours(4),PubgUsername=Input.PubgUsername };//burda  user her hansisa bir kod yazib onu vereceyik unik
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, Fullname = Input.Name, CreationDate = DateTime.UtcNow.AddHours(4), PreviousLogin=DateTime.UtcNow.AddHours(4),LastLogin=DateTime.UtcNow.AddHours(4),PubgUsername=Input.PubgUsername, BirthDate=Input.BirthDate,Gender=Input.Gender,MobileNumber=Input.Mobile };//burda  user her hansisa bir kod yazib onu vereceyik unik
                 var result = await _userManager.CreateAsync(user);//burda elave edir
                 if (result.Succeeded)
                 {

@@ -7,3 +7,17 @@
     background: #e48632;
     color: white;
 }
+
+.gender-m {
+    height: 12px!important;
+    margin-right: 10px;
+}
+.gender-f {
+    height: 12px!important;
+}
+
+@media screen and (min-width: 992px) {
+    .carousel-item img {
+        height: 100vh!important;
+    }
+}

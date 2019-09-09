@@ -178,6 +178,10 @@ namespace PUBG.Data.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<DateTime>("BirthDate");
+
+                    b.Property<int>("Bonus");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
@@ -190,6 +194,8 @@ namespace PUBG.Data.Migrations
 
                     b.Property<string>("Fullname");
 
+                    b.Property<bool>("Gender");
+
                     b.Property<bool>("IsBanned");
 
                     b.Property<DateTime>("LastLogin");
@@ -197,6 +203,10 @@ namespace PUBG.Data.Migrations
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
+
+                    b.Property<string>("MobileNumber");
+
+                    b.Property<int>("Money");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);

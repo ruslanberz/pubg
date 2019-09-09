@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ruslan\\Desktop\\http\\PUBG\\PUBG\\PUBG\\PUBG.csproj": {}
+    "C:\\Users\\Ruslan\\Desktop\\http\\PUBG\\PUBG.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ruslan\\Desktop\\http\\PUBG\\PUBG\\PUBG\\PUBG.csproj": {
+    "C:\\Users\\Ruslan\\Desktop\\http\\PUBG\\PUBG.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ruslan\\Desktop\\http\\PUBG\\PUBG\\PUBG\\PUBG.csproj",
+        "projectUniqueName": "C:\\Users\\Ruslan\\Desktop\\http\\PUBG\\PUBG.csproj",
         "projectName": "PUBG",
-        "projectPath": "C:\\Users\\Ruslan\\Desktop\\http\\PUBG\\PUBG\\PUBG\\PUBG.csproj",
+        "projectPath": "C:\\Users\\Ruslan\\Desktop\\http\\PUBG\\PUBG.csproj",
         "packagesPath": "C:\\Users\\Ruslan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ruslan\\Desktop\\http\\PUBG\\PUBG\\PUBG\\obj\\",
+        "outputPath": "C:\\Users\\Ruslan\\Desktop\\http\\PUBG\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
