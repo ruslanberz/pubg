@@ -76,25 +76,15 @@
         <a href="about.html"></a><!-- Nav Anchor -->
         <div class="row heading tiny-margin">
             <div class="col-md-auto">
-                <h1 class="animation-element slide-down">HA<span class="colored">QQIMIZDA</span></h1>
+                <h1 class="animation-element slide-down">M<span class="colored">ÜKAFATLAR</span></h1>
             </div>
-            <div class="col">
-                <hr class="animation-element extend">
-            </div>
+        
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <p class="small-margin">We are a dedicated team of developers, designers, artists, programmers, and most importantly gaming enthusiasts. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae ante pharetra, molestie nunc non, interdum ipsum.</p>
-                <img id="awards" src="/images/awards.png" class="img-fluid" alt="awads">
-            </div>
-            <div class="col-md-6">
-                <img id="support-image" src="/images/placeholder.jpg" data-src="/images/digital_collage.png" class="img-fluid b-lazy" alt="digital collage">
-            </div>
-        </div>
+     
     </div>
     <!-- /// GAMES SECTION /// -->
-    <div id="games" class="large-margin">
-        <a href="games.html"></a><!-- Nav Anchor -->
+    @*<div id="games" class="large-margin">
+        <a href="games.html"></a>
         <div class="row heading tiny-margin">
             <div class="col-md-auto">
                 <h1 class="animation-element slide-down">R<span class="colored">EKLAMLAR</span></h1>
@@ -103,15 +93,11 @@
                 <hr class="animation-element extend">
             </div>
         </div>
-        @*<div class="row ">
-                <div class="col-md-11 small-margin">
-                    <p>Here at Strider games we pride ourselves in delivering rich and polished experiences that our fanbase can enjoy and immerse themselve into. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse facilisis rhoncus nibh.</p>
-                </div>
 
-            </div>*@
+       
         <div class="games-portfolio ">
 
-            <!-- Game Card -->
+             Game Card 
             @foreach (var item in Model.Advertisements)
             {
                 <div class="row game-card pc">
@@ -132,7 +118,7 @@
                     <div class="col-lg-12 col-xl-7 game-card-right">
                         <h2 class="short-hr-left">@item.Title</h2>
 
-                        <p class="game-description">@item.BodyText</p>
+                        <p class="game-description">@Html.Raw(item.BodyText)</p>
 
                         <span>@item.UniqueID</span>
                         <a href="/home/advertisement/@item.Id">Ətraflı</a>
@@ -141,78 +127,10 @@
                 </div>
 
             }
-            <!-- Game Card End -->
-            <!-- Game Card -->
-            @*<div class="row game-card mobile">
-                    <div class="col-lg-12 col-xl-5 game-card-left">
-                        <a href="/images/game2_large.jpg" data-lightbox="screenshots_dark">
-                            <div class="overlay">
-                                <i class="fa fa-picture-o fa-3x"></i>
-                            </div>
-                            <picture>
-                                <source media="(min-width: 1200px)" srcset="/images/game2.jpg">
-                                <source media="(min-width: 768px)" srcset="/images/game2_large.jpg">
-                                <img src="/images/placeholder.jpg" data-src="/images/game2.jpg" class="img-fluid b-lazy" alt="aurora image">
-                            </picture>
-                        </a>
-                        <a href="/images/game2.1.jpg" data-lightbox="screenshots_dark"></a>
-                        <a href="/images/game2.2.jpg" data-lightbox="screenshots_dark"></a>
-                    </div>
-                    <div class="col-lg-12 col-xl-7 game-card-right">
-                        <h2 class="short-hr-left">ECHO - DARK ADVENTURES</h2>
-                        <p class="tags"><span class="subtle">Adventure | Mobile</span></p>
-                        <p class="game-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse facilisis rhoncus nibh. Phasellus dignissim luctus consectetur. Fusce viverra est non purus ultrices, vel molestie massa tincidunt. <span class="expand colored strong" data-toggle="modal" data-target="#game2">Read More</span></p>
-                        <a href="#" class="button-store">
-                            <i class="fa fa-android fa-2x"></i>
-                            <p>Available on<br><span class="strong">Google Play</span></p>
-                        </a>
-                        <a href="#" class="button-store">
-                            <i class="fa fa-apple fa-2x"></i>
-                            <p>Available on<br><span class="strong">Apple Store</span></p>
-                        </a>
-                        <div class="rating">
-                            <p class="strong">4.1</p>
-                            <ul>
-                                <li><i class="fa fa-star colored"></i></li>
-                                <li><i class="fa fa-star colored"></i></li>
-                                <li><i class="fa fa-star colored"></i></li>
-                                <li><i class="fa fa-star colored"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Modal -->
-                    <div class="modal fade game-modal" id="game4" tabindex="-1" role="dialog" aria-labelledby="echo" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title" id="echo">ECHO - DARK ADVENTURES</h1>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <iframe class="modal-vid" src="https://www.youtube.com/embed/73vSguCeJl0?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-                                    <h2 class="short-hr-left">EXPLORE AN EXPANSIVE WORLD</h2>
-                                    <p>Integer eget diam felis. Quisque et aliquet lectus, et lacinia turpis. Praesent eget pretium orci. Sed vestibulum rutrum volutpat. Curabitur feugiat arcu odio, quis convallis eros laoreet ac.</p>
-                                    <img class="img-fluid" src="/images/game2.1.jpg" alt="screenshot">
-                                    <br>
-                                    <h2 class="short-hr-left">GET IMMERSED IN A FANTASTIC STORY</h2>
-                                    <p>Suspendisse ultricies, dui vitae convallis blandit, ipsum sem mattis diam, in egestas arcu lacus sed lectus. Donec at interdum tellus. Quisque pellentesque a felis et rutrum. Donec condimentum magna sit amet viverra convallis. Fusce accumsan efficitur orci a commodo.</p>
-                                    <img class="img-fluid" src="/images/game2.2.jpg" alt="screenshot">
-                                    <br>
-                                    <h2 class="short-hr-left">ADAPT AND DEVELOP YOUR CHARACTER</h2>
-                                    <p>Mauris at sapien nibh. Integer id tellus vitae ante cursus pharetra. Vestibulum ultrices eleifend enim, quis maximus nibh dapibus in. Phasellus lacinia nec leo at semper. Duis nisl odio, lacinia quis dui at, pretium tincidunt metus. Maecenas condimentum purus sit amet neque maximus tempor. Proin eros massa, ullamcorper eget rutrum eu, feugiat id purus.</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="button secondary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- Game Card End -->*@
+             Game Card End 
+        
         </div>
-    </div>
+    </div>*@
     <div id="games" class="large-margin">
         <a href="games.html"></a><!-- Nav Anchor -->
         <div class="row heading tiny-margin">
@@ -343,90 +261,99 @@
     <div id="team" class="large-margin">
         <a href="team.html"></a><!-- Nav Anchor -->
         @*<div class="row heading tiny-margin">
-                <div class="col-md-auto">
-                    <h1 class="animation-element slide-down">THE <span class="colored">TEAM</span></h1>
-                </div>
-                <div class="col">
-                    <hr class="animation-element extend">
-                </div>
+            <div class="col-md-auto">
+                <h1 class="animation-element slide-down">THE <span class="colored">TEAM</span></h1>
             </div>
-            <div class="row medium-margin">
-                <div class="col-md-11 tiny-margin">
-                    <p>Our passion unites us. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt mi ut mauris varius, vitae lobortis erat ullamcorper. Pellentesque vel dolor non nisi fringilla scelerisque in non ante.</p>
-                </div>
-                <div id="full-row" class="row text-center">
-                    <div class="col-md-3 team-card">
-                        <figure>
-                            <img src="/images/placeholder.jpg" data-src="/images/team1.jpg" class="img-fluid b-lazy" alt="teammember">
-                            <figcaption class="team-caption">
-                                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
-                                <hr class="hr-short">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin fa-lg"></i></a></li>
-                                </ul>
-                            </figcaption>
-                        </figure>
-                        <p class="team-name">Vladimir M.</p>
-                        <p class="subtle">Lead Designer</p>
-                    </div>
-                    <div class="col-md-3 team-card">
-                        <figure>
-                            <img src="/images/placeholder.jpg" data-src="/images/team2.jpg" class="img-fluid b-lazy" alt="teammember">
-                            <figcaption class="team-caption">
-                                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
-                                <hr class="hr-short">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin fa-lg"></i></a></li>
-                                </ul>
-                            </figcaption>
-                        </figure>
-                        <p class="team-name">Asimov R.</p>
-                        <p class="subtle">Founder</p>
-                    </div>
-                    <div class="col-md-3 team-card">
-                        <figure>
-                            <img src="/images/placeholder.jpg" data-src="/images/team3.jpg" class="img-fluid b-lazy" alt="teammember">
-                            <figcaption class="team-caption">
-                                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
-                                <hr class="hr-short">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin fa-lg"></i></a></li>
-                                </ul>
-                            </figcaption>
-                        </figure>
-                        <p class="team-name">Natalia I.</p>
-                        <p class="subtle">Lead Artist</p>
-                    </div>
-                    <div class="col-md-3 team-card">
-                        <figure>
-                            <img src="/images/placeholder.jpg" data-src="/images/team4.jpg" class="img-fluid b-lazy" alt="teammember">
-                            <figcaption class="team-caption">
-                                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
-                                <hr class="hr-short">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin fa-lg"></i></a></li>
-                                </ul>
-                            </figcaption>
-                        </figure>
-                        <p class="team-name">Dimitri A.</p>
-                        <p class="subtle">Programmer</p>
-                    </div>
-                </div>
-            </div>*@
-        <div class="row tiny-margin">
-            <div class="col-md-11">
-                <h2 class="short-hr-left">QALEREYA</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt, nisl non mattis sollicitudin, risus quam tempor sem, vel interdum est libero non odio.</p>
+            <div class="col">
+                <hr class="animation-element extend">
             </div>
         </div>
+        <div class="row medium-margin">
+            <div class="col-md-11 tiny-margin">
+                <p>Our passion unites us. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt mi ut mauris varius, vitae lobortis erat ullamcorper. Pellentesque vel dolor non nisi fringilla scelerisque in non ante.</p>
+            </div>
+            <div id="full-row" class="row text-center">
+                <div class="col-md-3 team-card">
+                    <figure>
+                        <img src="/images/placeholder.jpg" data-src="/images/team1.jpg" class="img-fluid b-lazy" alt="teammember">
+                        <figcaption class="team-caption">
+                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
+                            <hr class="hr-short">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin fa-lg"></i></a></li>
+                            </ul>
+                        </figcaption>
+                    </figure>
+                    <p class="team-name">Vladimir M.</p>
+                    <p class="subtle">Lead Designer</p>
+                </div>
+                <div class="col-md-3 team-card">
+                    <figure>
+                        <img src="/images/placeholder.jpg" data-src="/images/team2.jpg" class="img-fluid b-lazy" alt="teammember">
+                        <figcaption class="team-caption">
+                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
+                            <hr class="hr-short">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin fa-lg"></i></a></li>
+                            </ul>
+                        </figcaption>
+                    </figure>
+                    <p class="team-name">Asimov R.</p>
+                    <p class="subtle">Founder</p>
+                </div>
+                <div class="col-md-3 team-card">
+                    <figure>
+                        <img src="/images/placeholder.jpg" data-src="/images/team3.jpg" class="img-fluid b-lazy" alt="teammember">
+                        <figcaption class="team-caption">
+                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
+                            <hr class="hr-short">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin fa-lg"></i></a></li>
+                            </ul>
+                        </figcaption>
+                    </figure>
+                    <p class="team-name">Natalia I.</p>
+                    <p class="subtle">Lead Artist</p>
+                </div>
+                <div class="col-md-3 team-card">
+                    <figure>
+                        <img src="/images/placeholder.jpg" data-src="/images/team4.jpg" class="img-fluid b-lazy" alt="teammember">
+                        <figcaption class="team-caption">
+                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
+                            <hr class="hr-short">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin fa-lg"></i></a></li>
+                            </ul>
+                        </figcaption>
+                    </figure>
+                    <p class="team-name">Dimitri A.</p>
+                    <p class="subtle">Programmer</p>
+                </div>
+            </div>
+        </div>*@
+        @*<div class="row tiny-margin">
+            <div class="col-md-11">
+                <h2 class="short-hr-left">QALİBLƏRİMİZ</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt, nisl non mattis sollicitudin, risus quam tempor sem, vel interdum est libero non odio.</p>
+            </div>
+        </div>*@
+        <div class="row heading tiny-margin">
+            <div class="col-md-auto">
+                <h1 class="animation-element slide-down">QALİB<span class="colored">LƏRİMİZ</span></h1>
+            </div>
+            <div class="col">
+                <hr class="animation-element extend">
+            </div>
+        </div>
+
         <div class="grid-gallery">
             <div class="row">
                 @foreach (var item in Model.galleryPhotos)

@@ -24,6 +24,7 @@ namespace PUBG.Data
         public DbSet<Subscriptions> Subscriptions { get; set; }
         public DbSet<Advertisement> Advertisements { get; set; }
         public DbSet <GalleryPhotos> GalleryPhotos { get; set; }
+        public DbSet<Rule> Rules { get; set; }
 
 
     }

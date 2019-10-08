@@ -11,5 +11,6 @@ namespace PUBG.Models
         public int Say { get; set; }
         public int? Xal { get; set; }
         public string SeasonName { get; set; }
+        public List<string> Image { get; set; }
     }
 }

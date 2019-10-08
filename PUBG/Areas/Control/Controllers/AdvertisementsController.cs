@@ -74,7 +74,7 @@ namespace PUBG.Areas.Control.Controllers
                 Advertisement ads = new Advertisement();
                 
                 ads.UniqueID = "#"+RandomString(6);
-                ads.Title = advertisement.Title + " "+ads.UniqueID;
+                ads.Title = advertisement.Title;
                 ads.BodyText = advertisement.BodyText;
                 ads.CreationDate = DateTime.UtcNow.AddHours(4);
                 ads.ValidUntil = advertisement.ValidUntil;

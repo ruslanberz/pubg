@@ -1,0 +1,22 @@
+﻿@model PUBG.Models.Rule
+@{
+    ViewData["Title"] = "Rules";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+ <br />
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-12">
+            <div class="rules"  style="height:600px!important;">
+               @Html.Raw(Model.BodyText)
+
+        </div>
+    </div>
+</div>
+

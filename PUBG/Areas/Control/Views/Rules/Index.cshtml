@@ -1,0 +1,33 @@
+﻿@model IEnumerable<PUBG.Models.Rule>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Control/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Şərtlər
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.Raw(item.BodyText)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Redaktə et</a> |
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

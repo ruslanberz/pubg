@@ -1,16 +1,18 @@
 ﻿@model PUBG.Models.Advertisement
 @{
     ViewData["Title"]=@Model.Title;
-    Layout = "~/Views/Shared/_Layout.cshtml"; 
-
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var text = Model.Title +" "+ Model.UniqueID;
+    var content = Html.Raw(
+        Model.BodyText);
 }
 
 
 @section meta{
 <meta property="og:url" content="https://smartgames.az/home/advertisement/@Model.Id" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="@Model.Title" />
-<meta property="og:description" content="@Model.UniqueID  @Model.BodyText" />
+<meta property="og:title" content="@text" />
+@*<meta property="og:description" content="@content" />*@
 <meta property="og:image" content="https://smartgames.az/images/@Model.Image" />
 }
 <div id="fb-root"></div>
@@ -35,7 +37,7 @@
         <div class="col-lg-12 col-xl-7 game-card-right">
             <h2 class="short-hr-left">@Model.Title</h2>
 
-            <p class="game-description">@Model.BodyText</p>
+            <p class="game-description">@Html.Raw(Model.BodyText)</p>
 
             <span>@Model.UniqueID</span>
             <div class="fb-share-button" data-href="https://smartgames.az/home/advertisement/@Model.Id" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://smartgames.az/home/advertisement/@Model.Id;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>

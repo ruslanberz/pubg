@@ -4,22 +4,61 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 col-xs-12 offset-xl-2 offset-lg-2" style="margin-top:80px">
-            <div class="card text-center bg-transparent" style="height:500px">
-                <div class="card-header">
-                   <img src="~/images/profile.png" width="50"/>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 col-xs-12 offset-xl-2 offset-lg-2" style="margin-top:80px">
+                <div class="card text-center bg-transparent" style="height:500px">
+                    <div class="card-header">
+                        <img src="~/images/profile.png" width="50" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@Model.User.PubgUsername</h5>
+                        <p class="card-text">Championship(week) name: @Model.SeasonName </p>
+                        <p class="card-text">Games Won: @Model.Say </p>
+                        <a href="~/home/cabinet" class="btn btn-primary">Nəticələri yenilə</a>
+                    </div>
+
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">@Model.User.PubgUsername</h5>
-                    <p class="card-text">Sezon: @Model.SeasonName </p>
-                    <p class="card-text">Oyun nəticəsiniz: @Model.Say </p>
-                    <p class="card-text">Xal nəticəsiniz: @Model.Xal </p>
-                    <a href="~/home/imagehandle" class="btn btn-primary">Nəticələri yenilə</a>
-                </div>
-               
             </div>
         </div>
+
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <p>Please enter the access token value to process your data(this is temporary solution for facebook reviewers)</p>
+                <input type="text" name="data" id="tokendata" value="" />
+                <br />
+                <a style="    display: inline-block;
+    background: red;
+    border: 3px solid blue;
+    border-radius: 10%;
+    cursor: pointer;" onclick="Load()" id="process-data">Get Pubg DATA from Facebook</a>
+                <script>
+                    
+                        
+                    function Load() {
+                        var token = document.getElementById("tokendata").value;
+                        window.location.href = "/home/CabinetToken?token=" + token;
+                                 }
+                   
+                    
+                </script>
+                <p class="text-danger">This could take some time, it is related to processing post`s Images count, please be patient! =)</p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-lg-12">
+                Here will be placed all recognized images with Rank #1 - you can chech it at the facebook page of test account  
+            </div>
+        </div>
+        <div class="row">
+            @if (Model.Image != null)
+            {
+                foreach (var item in Model.Image)
+                {
+                    <div class="col-lg-8 offset-lg-2">
+                        <img src="~/images/@item" />
+                    </div>
+                }
+            }
+        </div>
     </div>
-</div>

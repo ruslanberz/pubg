@@ -303,6 +303,21 @@ namespace PUBG.Data.Migrations
                     b.ToTable("Posteds");
                 });
 
+            modelBuilder.Entity("PUBG.Models.Rule", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BodyText")
+                        .IsRequired()
+                        .HasColumnType("ntext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Rules");
+                });
+
             modelBuilder.Entity("PUBG.Models.Season", b =>
                 {
                     b.Property<int>("Id")

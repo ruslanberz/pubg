@@ -107,6 +107,12 @@ namespace PUBG.Controllers
 
           
         }
+
+        public ActionResult Rules()
+        {
+            Rule current = _context.Rules.FirstOrDefault();
+            return View(current);
+        }
         //public void SendMail(string servis)
         //{
         //    foreach (var address in _context.Subscriptions)
@@ -222,13 +228,44 @@ namespace PUBG.Controllers
                 current.Xal = _context.Posteds.Where(z => z.SeasonId == currentSeason.Id).Sum(c => c.Point);
                 current.Say = _context.Posteds.Where(z => z.ApplicationUserId ==current.User.Id && z.SeasonId == currentSeason.Id).Count();
                 current.SeasonName = currentSeason.Name;
-                
+                current.Image = _context.Posteds.Where(z => z.ApplicationUserId == current.User.Id && z.SeasonId == currentSeason.Id).Select(x => x.ImagePath).ToList();
+                //ApplicationUser usr = _context.Users.FirstOrDefault(x => x.UserName == HttpContext.Session.GetString(SessionName));
+                //usr.PreviousLogin = DateTime.UtcNow.AddHours(4);
+                //_context.SaveChanges();
                 return View(current);
             }
 
         }
+        [ActionName("CabinetToken")]
+        public async Task<IActionResult> Cabinet (string token)
+        {
+            if (User.Identity.IsAuthenticated == false)
+            {
+                return View(nameof(Index));
+            }
+            else
+
+            {
+                HttpContext.Session.SetString(SessionName, User.Identity.Name);
+                Season currentSeason = _context.Seasons.FirstOrDefault(x => x.IsActive == true);
+                string s = HttpContext.Session.GetString(SessionName);
+                var u = _context.Users.FirstOrDefault(x => x.UserName == User.Identity.Name);
+                ViewBag.Count = await ImageHandle(u,token);
+                CabinetVw current = new CabinetVw();
+                current.User = u;
+                current.Xal = _context.Posteds.Where(z => z.SeasonId == currentSeason.Id).Sum(c => c.Point);
+                current.Say = _context.Posteds.Where(z => z.ApplicationUserId == current.User.Id && z.SeasonId == currentSeason.Id).Count();
+                current.SeasonName = currentSeason.Name;
+                ApplicationUser usr = _context.Users.FirstOrDefault(x => x.UserName == HttpContext.Session.GetString(SessionName));
+                current.Image = _context.Posteds.Where(z => z.ApplicationUserId == current.User.Id && z.SeasonId == currentSeason.Id).Select(x => x.ImagePath).ToList();
+                usr.PreviousLogin = DateTime.UtcNow.AddHours(4);
+                _context.SaveChanges();
+                return View("Cabinet", current);
+            }
+
+        }
         [HttpGet]
-        public async Task<IActionResult> ImageHandle(ApplicationUser currentUser)
+        public async Task<IActionResult> ImageHandle(ApplicationUser currentUser, string token="")
         {
             int count = 0;
             if (currentUser.PreviousLogin != null)
@@ -236,8 +273,9 @@ namespace PUBG.Controllers
 
                 string link = "https://graph.facebook.com/v4.0/me?fields=id,name,feed.since(";
                 string time = currentUser.PreviousLogin.ToString("s", DateTimeFormatInfo.InvariantInfo); //bunu userin prevLogin - den gotureceyik ok//api key deyis
-                string linkEnd = "){message,application,full_picture,created_time}&&access_token=EAAgVtLbVRlIBACeZA2K35EmuYtQM0yAPdJzkP1ytAYispZBVjJcYNLaED9GZCUtNihypucepwZBZCVK6nWzObmvzCXAc6kNraeBaQ9kx2ziqYZCKZAhRZCHyXTLn4OZCTDklZApZBoUSwMVhGEdAH8KZBbkZAZADgk4IXqphVZBwTtMO0s4RjenCZAO11oduTBuxGxbzNVgt7ZCqM7ptD9QZDZD";
-                string fullLink = link + time + linkEnd;
+                string linkEnd = "){message,application,full_picture,created_time}&&access_token=";
+                                                                                                 
+                string fullLink = link + time + linkEnd+token;
                 var client = new RestClient(fullLink);
                 var request = new RestRequest();
                 // do whatever else you want/need to, to the request
@@ -257,7 +295,7 @@ namespace PUBG.Controllers
 
                         if (item.application != null)
                         {
-                            if (item.application.category == "Games" && item.application.name == "PUBG Mobile")
+                            if (item.application.name == "PUBG Mobile")
                             {
                                 var uploadFolder = Path.Combine(hostingEnvironment.WebRootPath, "images");
                                
@@ -267,7 +305,7 @@ namespace PUBG.Controllers
                                 string imageName = item.created_time.ToString("dd-MM-yyyy-HH-mm") + currentUser.PubgUsername + ".jpg";
 
                                 string res;
-                                using (var engine = new TesseractEngine(Path.Combine(".\\", "tessdata"), "eng", EngineMode.TesseractAndCube))
+                                using (var engine = new TesseractEngine(Path.Combine(".\\", "tessdata"), "eng", EngineMode.Default))
                                 {
 
                                     using (var image = Pix.LoadFromFile(".\\Uploads\\foo.jpg"))
@@ -324,7 +362,103 @@ namespace PUBG.Controllers
             //return Content(count.ToString());
             return RedirectToAction("cabinet");
         }
-       
+
+        //public async Task<IActionResult> ImageHandle(ApplicationUser currentUser, string token)
+        //{
+        //    int count = 0;
+        //    if (currentUser.PreviousLogin != null)
+        //    {
+
+        //        string link = "https://graph.facebook.com/v4.0/me?fields=id,name,feed.since(";
+        //        string time = currentUser.PreviousLogin.ToString("s", DateTimeFormatInfo.InvariantInfo); //bunu userin prevLogin - den gotureceyik ok//api key deyis
+        //        string linkEnd = "){message,application,full_picture,created_time}&&access_token=";
+        //        string fullLink = link + time + linkEnd+token;
+        //        var client = new RestClient(fullLink);
+        //        var request = new RestRequest();
+        //        // do whatever else you want/need to, to the request
+        //        // ...
+
+
+
+        //        //// ... and use it like we used to
+        //        var response = client.Execute(request);
+
+
+        //        var usersFB = JsonConvert.DeserializeObject<FacebookImage>(response.Content);
+        //        if (usersFB.Feed != null)
+        //        {
+        //            foreach (var item in usersFB.Feed.data.ToList())
+        //            {
+
+        //                if (item.application != null)
+        //                {
+        //                    if (item.application.category == "Games" && item.application.name == "PUBG Mobile")
+        //                    {
+        //                        var uploadFolder = Path.Combine(hostingEnvironment.WebRootPath, "images");
+
+
+        //                        await CropImage(item.full_picture);
+
+        //                        string imageName = item.created_time.ToString("dd-MM-yyyy-HH-mm") + currentUser.PubgUsername + ".jpg";
+
+        //                        string res;
+        //                        using (var engine = new TesseractEngine(Path.Combine(".\\", "tessdata"), "eng", EngineMode.TesseractAndCube))
+        //                        {
+
+        //                            using (var image = Pix.LoadFromFile(".\\Uploads\\foo.jpg"))
+        //                            {
+
+        //                                using (var page = engine.Process(image))
+        //                                {
+
+        //                                    res = page.GetText();
+
+        //                                }
+
+        //                            }
+        //                        }
+        //                        int val = res.IndexOf("#");
+
+        //                        if (val > 0)
+        //                        {
+        //                            var rating = res.Substring(val, 3);
+        //                            string value = rating.Substring(1, 2);
+        //                            var trm = value.Trim();
+        //                            if (trm == "|" || trm == "l" || trm == "1")
+        //                            {
+        //                                trm = "1";
+        //                                count++;
+        //                                Posted post = new Posted();
+
+        //                                post.Season = _context.Seasons.FirstOrDefault(x => x.IsActive == true);
+        //                                post.SeasonId = _context.Seasons.FirstOrDefault(x => x.IsActive == true).Id;
+        //                                post.ImagePath = imageName;
+        //                                post.CreatedAt = item.created_time;
+        //                                post.ApplicationUser = currentUser;
+        //                                post.ApplicationUserId = currentUser.Id;
+        //                                _context.Posteds.Add(post);
+        //                                _context.SaveChanges();
+        //                                await CropImage2(item.full_picture, imageName, uploadFolder);
+
+        //                            }
+
+        //                        }
+
+
+        //                    }
+        //                }
+        //            }
+
+        //        }
+        //    }
+
+
+
+
+
+        //    //return Content(count.ToString());
+        //    return RedirectToAction("cabinet");
+        //}
 
         private async static Task CropImage(string a)
         {
@@ -336,14 +470,14 @@ namespace PUBG.Controllers
 
                 using (var inputStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false))
                 {
-                    using (var image = SixLabors.ImageSharp.Image.Load(inputStream))
+                    using (var image = System.Drawing.Image.FromStream(inputStream))
                     {
                         
                         var path = Path.Combine(".\\Uploads", "foo.jpg");
-
-                        image.Clone(
-                            ctx => ctx.Crop(580, 270)).Save(path);
-
+                        Rectangle cropArea = new Rectangle(70, 120, 200, 100);
+                        Bitmap bmpImage = new Bitmap(image);
+                        bmpImage= bmpImage.Clone(cropArea, bmpImage.PixelFormat);
+                        bmpImage.Save(path);
                     }
                 }
             }

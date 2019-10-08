@@ -61,6 +61,7 @@
                         <a class="collapse-item" href="/control/posteds">Postlar</a>
                         <a class="collapse-item" href="/control/advertisements">Reklam</a>
                         <a class="collapse-item" href="/control/galleryphotos">Qalereya</a>
+                        <a class="collapse-item" href="/control/rules">Şərtlər</a>
                     </div>
                 </div>
             </li>
@@ -224,10 +225,18 @@
     <!-- Custom scripts for all pages-->
     <script src="~/js/DataTable.js"></script>
     <script src="~/js/sb-admin-2.min.js"></script>
+    <script src="~/js/ckeditor.js"></script>
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
+        ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+      
+    } )
+    .catch( error => {
+        console.log( error );
+    } );
     </script>
     @RenderSection("scripts", required: false)
 </body>

@@ -253,4 +253,9 @@ C:\Users\Ruslan\Desktop\http\PUBG\obj\Debug\netcoreapp2.2\PUBG.Views.pdb
 C:\Users\Ruslan\Desktop\http\PUBG\obj\Debug\netcoreapp2.2\PUBG.dll
 C:\Users\Ruslan\Desktop\http\PUBG\obj\Debug\netcoreapp2.2\PUBG.pdb
 C:\Users\Ruslan\Desktop\http\PUBG\obj\Debug\netcoreapp2.2\PUBG.csproj.CopyComplete
-C:\Users\Ruslan\Desktop\http\PUBG\obj\Debug\netcoreapp2.2\PUBG.csprojAssemblyReference.cache
+C:\Users\Ruslan\Desktop\http\PUBG\obj\Debug\netcoreapp2.2\Razor\Views\Home\Rules.g.cshtml.cs
+C:\Users\Ruslan\Desktop\http\PUBG\obj\Debug\netcoreapp2.2\Razor\Areas\Control\Views\Rules\Create.g.cshtml.cs
+C:\Users\Ruslan\Desktop\http\PUBG\obj\Debug\netcoreapp2.2\Razor\Areas\Control\Views\Rules\Delete.g.cshtml.cs
+C:\Users\Ruslan\Desktop\http\PUBG\obj\Debug\netcoreapp2.2\Razor\Areas\Control\Views\Rules\Details.g.cshtml.cs
+C:\Users\Ruslan\Desktop\http\PUBG\obj\Debug\netcoreapp2.2\Razor\Areas\Control\Views\Rules\Edit.g.cshtml.cs
+C:\Users\Ruslan\Desktop\http\PUBG\obj\Debug\netcoreapp2.2\Razor\Areas\Control\Views\Rules\Index.g.cshtml.cs
