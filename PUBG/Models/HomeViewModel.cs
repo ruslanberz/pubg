@@ -11,6 +11,7 @@ namespace PUBG.Models
         public List<Blog>  Blogs { get; set; }
         public List<Advertisement> Advertisements { get; set; }
         public List<GalleryPhotos> galleryPhotos { get; set; }
+        public List<RatingGame> RatingGames { get; set; }
         //basqa nese var?
     }
 }

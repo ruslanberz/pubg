@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ruslan\\Desktop\\http\\PUBG\\PUBG.csproj": {}
+    "C:\\Users\\Kamran\\Desktop\\PUBG\\pubg\\PUBG\\PUBG.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ruslan\\Desktop\\http\\PUBG\\PUBG.csproj": {
+    "C:\\Users\\Kamran\\Desktop\\PUBG\\pubg\\PUBG\\PUBG.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ruslan\\Desktop\\http\\PUBG\\PUBG.csproj",
+        "projectUniqueName": "C:\\Users\\Kamran\\Desktop\\PUBG\\pubg\\PUBG\\PUBG.csproj",
         "projectName": "PUBG",
-        "projectPath": "C:\\Users\\Ruslan\\Desktop\\http\\PUBG\\PUBG.csproj",
-        "packagesPath": "C:\\Users\\Ruslan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ruslan\\Desktop\\http\\PUBG\\obj\\",
+        "projectPath": "C:\\Users\\Kamran\\Desktop\\PUBG\\pubg\\PUBG\\PUBG.csproj",
+        "packagesPath": "C:\\Users\\Kamran\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kamran\\Desktop\\PUBG\\pubg\\PUBG\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Ruslan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Kamran\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,10 +88,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

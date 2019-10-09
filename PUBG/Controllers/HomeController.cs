@@ -51,12 +51,20 @@ namespace PUBG.Controllers
 
 
             }
+            var currentSeason = _context.Seasons.FirstOrDefault(x => x.IsActive == true);
+            var rating = _context.Users.Where(x => !x.SkippedUsers.Any(y => y.ApplicationUserId.Contains(y.ApplicationUserId))).Select(x => new RatingGame
+            {
+                PubgName = x.PubgUsername,
+                Count = _context.Posteds.Where(z => z.ApplicationUserId == x.Id && z.SeasonId == currentSeason.Id).Count(),
+
+            }).OrderByDescending(t => t.Count).Take(5).ToList();
             HomeViewModel model = new HomeViewModel()
             {
                 Sliders = _context.Sliders.ToList(),
                 Blogs = _context.Blogs.ToList(),
                 Advertisements = _context.Advertisements.OrderByDescending(x => x.Id).ToList(),
-                galleryPhotos = _context.GalleryPhotos.ToList()
+                galleryPhotos = _context.GalleryPhotos.ToList(),
+                RatingGames=rating
             };
 
             return View(model);

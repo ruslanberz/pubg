@@ -73,14 +73,41 @@
 <div class="container">
     <!-- /// ABOUT SECTION /// -->
     <div id="about" class="large-margin">
-        <a href="about.html"></a><!-- Nav Anchor -->
+        <a href="#"></a><!-- Nav Anchor -->
         <div class="row heading tiny-margin">
             <div class="col-md-auto">
                 <h1 class="animation-element slide-down">M<span class="colored">ÜKAFATLAR</span></h1>
             </div>
         
         </div>
-     
+     <div class="row">
+         <div class="col-md-6">
+
+         </div>
+      
+             <div class="col-md-6">
+                 <h2 class="colored text-center">Autumn Season</h2>
+                 <table class="table">
+                     <thead class="colored">
+                         <tr>
+                             <td colspan="2" class="text-center">GAMERS TOP 5</td>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         @foreach (var rating in Model.RatingGames)
+                         {
+                             <tr class="text-white">
+                                 <td>
+                                     @rating.PubgName
+                                 </td>
+                                 <td>@rating.Count</td>
+                             </tr>
+                         }
+                     </tbody>
+                 </table>
+             </div>
+        
+     </div>
     </div>
     <!-- /// GAMES SECTION /// -->
     @*<div id="games" class="large-margin">
