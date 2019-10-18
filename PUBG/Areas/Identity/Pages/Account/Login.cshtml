@@ -33,7 +33,11 @@
                                 <p>
                                     @foreach (var provider in Model.ExternalLogins)
                                     {
-                                        <button type="submit" style="background:#4267B2" class="btn xxyy" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account"> @provider.DisplayName</button>
+                                    <button type="submit" style="background:#4267B2" class="btn xxyy" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">
+                                        @*<i class="fa fa-facebook fa-sm"></i>
+        Continue with @provider.DisplayName*@
+                                        <img class="_5aqp _5aqr img" src="https://scontent.fgyd2-1.fna.fbcdn.net/v/t39.2365-6/18928641_251957295286418_4362086450741641216_n.png?_nc_cat=111&amp;_nc_oc=AQn_6SKKin-qAGLGO0Fnnl6AqHPEjPw8Dnjyeb_I6i2AppgIaw1oV7TQltKIXRqe-KI&amp;_nc_ht=scontent.fgyd2-1.fna&amp;oh=330f54175fd8b58c0836e2d2d29f3741&amp;oe=5E2C3D05" alt="" width="300">
+                                    </button>
                                     }
                                 </p>
                             </div>
